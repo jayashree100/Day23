@@ -1,10 +1,7 @@
-package userregistrationtest;
+package com.bridgelab.day23;
 
 import org.junit.jupiter.api.Test;
 import org.junit.rules.ExpectedException;
-
-import com.bridgelab.day23.InvalidUserException;
-import com.bridgelab.day23.UserRegistration;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -19,12 +16,11 @@ public class UserRegistrationTest {
 		try {
 			ExpectedException expectedException = ExpectedException.none();
 			expectedException.expect(InvalidUserException.class);
-			result = userRegistration.firstName("^[A-Z]{1}[a-z]{3,}$", "Saurabh", "Happy");
+			result = userRegistration.firstName("^[A-Z]{1}[a-z]{3,}$", "Senthil", "Happy");
 		} catch (InvalidUserException e) {
 			e.printStackTrace();
 		}
 		assertTrue(result);
-
 	}
 
 	@Test
@@ -33,7 +29,7 @@ public class UserRegistrationTest {
 		try {
 			ExpectedException expectedException = ExpectedException.none();
 			expectedException.expect(InvalidUserException.class);
-			result = userRegistration.firstName("^[A-Z]{1}[a-z]{3,}$", "Rabbu", "Happy");
+			result = userRegistration.firstName("^[A-Z]{1}[a-z]{3,}$", "sen", "Happy");
 		} catch (InvalidUserException e) {
 			e.printStackTrace();
 		}
@@ -48,7 +44,7 @@ public class UserRegistrationTest {
 		try {
 			ExpectedException expectedException = ExpectedException.none();
 			expectedException.expect(InvalidUserException.class);
-			result = userRegistration.lastName("^[A-Z]{1}[a-z]{3,}$", "Yeggewar", "Happy");
+			result = userRegistration.lastName("^[A-Z]{1}[a-z]{3,}$", "kumar", "Happy");
 		} catch (InvalidUserException e) {
 			e.printStackTrace();
 		}
@@ -61,7 +57,7 @@ public class UserRegistrationTest {
 		try {
 			ExpectedException expectedException = ExpectedException.none();
 			expectedException.expect(InvalidUserException.class);
-			result = userRegistration.lastName("^[A-Z]{1}[a-z]{3,}$", "kv", "Happy");
+			result = userRegistration.lastName("^[A-Z]{1}[a-z]{3,}$", "km", "Happy");
 		} catch (InvalidUserException e) {
 			e.printStackTrace();
 		}
@@ -76,7 +72,7 @@ public class UserRegistrationTest {
 			ExpectedException expectedException = ExpectedException.none();
 			expectedException.expect(InvalidUserException.class);
 			result = userRegistration.email("^[a-zA-Z0-9\\-\\+\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$",
-					"niha199831@gmail.com", "Happy");
+					"psk12@gmail.com", "Happy");
 		} catch (InvalidUserException e) {
 			e.printStackTrace();
 		}
@@ -90,7 +86,7 @@ public class UserRegistrationTest {
 			ExpectedException expectedException = ExpectedException.none();
 			expectedException.expect(InvalidUserException.class);
 			result = userRegistration.email("^[a-zA-Z0-9\\-\\+\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$",
-					"niharika199831#gmail.com", "Happy");
+					"sk123@gmail.com", "Happy");
 		} catch (InvalidUserException e) {
 			e.printStackTrace();
 		}
@@ -104,7 +100,7 @@ public class UserRegistrationTest {
 		try {
 			ExpectedException expectedException = ExpectedException.none();
 			expectedException.expect(InvalidUserException.class);
-			result = userRegistration.phone("^[0-9]{2}[ ]?[0-9]{10}$", "917057114002", "Happy");
+			result = userRegistration.phone("^[0-9]{2}[ ]?[0-9]{10}$", "9112345678901", "Happy");
 		} catch (InvalidUserException e) {
 			e.printStackTrace();
 		}
@@ -117,7 +113,7 @@ public class UserRegistrationTest {
 		try {
 			ExpectedException expectedException = ExpectedException.none();
 			expectedException.expect(InvalidUserException.class);
-			result = userRegistration.phone("^[0-9]{2}[ ]?[0-9]{10}$", "91550167198", "Happy");
+			result = userRegistration.phone("^[0-9]{2}[ ]?[0-9]{10}$", "919876543210", "Happy");
 		} catch (InvalidUserException e) {
 			e.printStackTrace();
 		}
@@ -131,7 +127,7 @@ public class UserRegistrationTest {
 		try {
 			ExpectedException expectedException = ExpectedException.none();
 			expectedException.expect(InvalidUserException.class);
-			result = userRegistration.password("^(?=.{8,}$)(?=.*\\d)(?=.*[A-Z])([a-zA-Z0-9]+[\\@\\#\\^])", "rabbu23A@",
+			result = userRegistration.password("^(?=.{8,}$)(?=.*\\d)(?=.*[A-Z])([a-zA-Z0-9]+[\\@\\#\\^])", "psk123@",
 					"Happy");
 		} catch (InvalidUserException e) {
 			e.printStackTrace();
@@ -145,7 +141,7 @@ public class UserRegistrationTest {
 		try {
 			ExpectedException expectedException = ExpectedException.none();
 			expectedException.expect(InvalidUserException.class);
-			result = userRegistration.password("^(?=.{8,}$)(?=.*\\d)(?=.*[A-Z])([a-zA-Z0-9]+[\\@\\#\\^])", "rabbu123A",
+			result = userRegistration.password("^(?=.{8,}$)(?=.*\\d)(?=.*[A-Z])([a-zA-Z0-9]+[\\@\\#\\^])", "psk123",
 					"Happy");
 		} catch (InvalidUserException e) {
 			e.printStackTrace();
